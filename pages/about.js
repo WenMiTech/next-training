@@ -1,5 +1,10 @@
+
+import Layout from './Layout';
+
 export default () => (
-    <div>
-        <p> this is about page</p>
-    </div>
+    <Layout>
+        <div>
+            <p> this is about page</p>
+        </div>
+    </Layout>
 )

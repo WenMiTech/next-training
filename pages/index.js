@@ -1,14 +1,13 @@
 import Link from 'next/link';
-
+import Layout from './Layout';
 const Index = () => {
 
     return (
-        <div>
-            <h1>Welcome next.js</h1>
-            {/* no effect */}
-            <Link href="/about" style={{ fontSize: 20 }}><a>about</a></Link>
-            <Link href="/about"><button>about</button></Link>
-        </div>
+        <Layout>
+            <div>
+                <h1>Welcome next.js</h1>
+            </div>
+        </Layout>
     )
 }
 
