@@ -1,24 +1,28 @@
 import Link from 'next/link';
 import Layout from './Layout';
-const PostLink = (props) => (
-    <li>
-        {/* as */}
-        <Link as={`/p/${props.id}`} href={`/post?title=${props.title}`}>
-            <a>{props.title}</a>
-        </Link>
-    </li>
-)
+import fetch from 'isomorphic-unfetch';
 
-
-const Index = () => {
-
+const Index = (props) => {
     return (
         <Layout>
-            <PostLink id="Hello-Next.js" title="Hello Next.js" />
-            <PostLink id="Hello-Next.js 2" title="Hello Next.js 2" />
-            <PostLink id="Hello-Next.js 3" title="Hello Next.js 3" />
+            <h1>Batman TV Shows</h1>
+            <ul>
+                {props.shows.map(({ show }) => (
+                    <li key={show.id}>
+                        <Link as={`/p/${show.id}`} href={`/post?id=${show.id}`}>
+                            <a>{show.name}</a>
+                        </Link>
+                    </li>
+                ))}
+            </ul>
         </Layout>
     )
+}
+//getInitialProps both works in server and client
+Index.getInitialProps = async function () {
+    const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
+    const data = await res.json();
+    return { shows: data }
 }
 
 export default Index;
