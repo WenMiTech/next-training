@@ -14,9 +14,9 @@ const Index = () => {
 
     return (
         <Layout>
-            <PostLink id="Hello Next.js" title="Hello Next.js" />
-            <PostLink id="Hello Next.js 2" title="Hello Next.js 2" />
-            <PostLink id="Hello Next.js 3" title="Hello Next.js 3" />
+            <PostLink id="Hello-Next.js" title="Hello Next.js" />
+            <PostLink id="Hello-Next.js 2" title="Hello Next.js 2" />
+            <PostLink id="Hello-Next.js 3" title="Hello Next.js 3" />
         </Layout>
     )
 }
